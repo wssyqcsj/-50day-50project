@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing 属性定义了 user agent 应该如何计算一个元素的总宽度和总高度
+    border-box你想要设置的边框和内边距的值是包含在 width 内的
+    内容区的实际宽度是 width 减去 (border + padding) 的值
+    */
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: '宋体';
+    /* justify-content: flex-start; 设置子元素在主轴上的对齐方式。属性值可以是：
+    flex-start 从主轴的起点对齐（默认值）
+    flex-end 从主轴的终点对齐
+    center 居中对齐
+    space-around 在父盒子里平分
+    space-between 两端对齐 平分 */
+    justify-content: center;
+    /* align-items：设置子元素在侧轴上的对齐方式。
+    属性值可以是： - flex-start 从侧轴开始的方向对齐
+    - flex-end 从侧轴结束的方向对齐
+    - baseline 基线 默认同flex-start
+    - center 中间对齐
+    - stretch 拉伸 */
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.container .panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    /* 设置了弹性项目如何增大或缩小以适应其弹性容器中可用的空间 */
+    flex: 0.5;
+    position: relative;
+    /* transition: 让哪些属性进行过度 过渡的持续时间 运动曲线 延迟时间 */
+    transition: all 700ms ease-in;
+}
+
+.container .panel h3 {
+    font-size: 24px;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    margin: 0;
+    /* 不透明度 */
+    opacity: 0;
+}
+
+.container .panel.active {
+    flex: 5;
+}
+
+.container .panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
