@@ -1,0 +1,122 @@
+:root {
+    /*
+    定义颜色常量
+    :root 表示 <html> 元素，除了优先级更高之外，与 html 选择器相同。
+    */
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    font-family: '宋体';
+    /* 弹性盒子 */
+    display: flex;
+    /*设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式*/
+    justify-content: center;
+    /*定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式*/
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.container .steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+
+.container .steps::before {
+    /*
+    ::before 创建一个伪元素，其将成为匹配选中的元素的第一个子元素
+    */
+    content: '';
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    /* 使用负值降低优先级 */
+    z-index: -1;
+}
+
+.container .steps .line {
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    transition: 0.4s ease;
+    z-index: -1;
+}
+
+.container .steps .circle {
+    background-color: #fff;
+    color: #999;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--line-border-empty);
+    border-radius: 50%;
+    transition: 0.4s ease;
+}
+
+.container .steps .circle.active {
+    border-color: var(--line-border-fill);
+}
+
+.container .btn {
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.container .btn:active {
+    /*
+    :active 伪类匹配被用户激活的元素。它让页面能在浏览器监测到激活时给出反馈。
+    当用鼠标交互时，它代表的是用户按下按键和松开按键之间的时间。
+    */
+    transform: scale(0.98);
+}
+
+.container .btn:focus {
+    /*
+    :focus表示获得焦点的元素（如表单输入）。
+    当用户点击或触摸元素或通过键盘的 “tab” 键选择它时会被触发。
+    */
+    outline: 0;
+}
+
+.container .btn:disabled {
+    /*
+    CSS 伪类表示任何被禁用的元素。
+    如果一个元素不能被激活（如选择、点击或接受文本输入）或获取焦点，则该元素处于被禁用状态。
+    */
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}
