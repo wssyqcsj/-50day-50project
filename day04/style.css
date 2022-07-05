@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 渐变 */
+    background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+    font-family: '宋体';
+    /* 弹性盒子 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.search {
+    position: relative;
+    height: 50px;
+}
+
+.search .input {
+    background-color: #fff;
+    /* 边框粗细为0 */
+    border: 0;
+    font-size: 18px;
+    height: 50px;
+    /* 内边距 */
+    padding: 15px;
+    width: 50px;
+    transition: width 0.3s ease;
+}
+
+.search .btn {
+    background-color: #fff;
+    border: 0;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    /* 与input对其 */
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    transition: transform 0.3s ease;
+}
+
+.search .input:focus,
+.search .btn:focus {
+    outline: none;
+}
+
+.search.active .input {
+    width: 200px;
+}
+
+.search.active .btn {
+    transform: translateX(196px);
+}
